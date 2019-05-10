@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-tutorial-second-app';
+  isAuthentified = false;
+
+  constructor() {
+    setTimeout(
+      () => {
+        this.isAuthentified = true;
+      }, 4000
+    );
+  }
 }
