@@ -1,6 +1,8 @@
 <li class="list-group-item">
   <div style="width:20px;height:20px;background-color:red;"
-    *ngIf="apparatusStatus === 'éteint'"></div>
-  <h4> Apparatus: {{ apparatusName }} - {{ getStatus() }}</h4>
+    *ngIf="apparatusStatus === 'éteint'">
+  </div>
+  <h4> Apparatus: {{ apparatusName }} - {{ getStatus() }}
+  </h4>
   <input type="text" name="apparatusNameInput" class="form-control" [(ngModel)] = "apparatusName">
 </li>
