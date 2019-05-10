@@ -10,6 +10,26 @@ export class AppComponent {
   title = 'angular-tutorial-second-app';
   isAuthentified = false;
 
+  // TODO: Rename apparatus in devices.
+  devices = [
+    {
+      name: 'Machine à laver',
+      status: 'éteint'
+    },
+    {
+      name: 'Télévision',
+      status: 'allumé'
+    },
+    {
+      name: 'Frigo',
+      status: 'éteint'
+    },
+    {
+      name: 'ordinateur',
+      status: 'allumé'
+    }
+  ];
+
   constructor() {
     setTimeout(
       () => {
