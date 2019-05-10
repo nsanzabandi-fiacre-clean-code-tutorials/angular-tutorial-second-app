@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'angular-tutorial-second-app';
   isAuthentified = false;
 
@@ -15,5 +16,9 @@ export class AppComponent {
         this.isAuthentified = true;
       }, 4000
     );
+  }
+
+  onClickOnSwitchAllLightButton() {
+    console.log("On allume tout!!");
   }
 }

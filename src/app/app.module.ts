@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FirstComponentComponent } from './first-component/first-component.component';
 import { ApparatusComponent } from './apparatus/apparatus.component';
+import { FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { ApparatusComponent } from './apparatus/apparatus.component';
     ApparatusComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,11 +4,16 @@
     <div class="col-xs-12">
       <h2>Here are my apparatus: </h2>
       <ul class="list-group">
-        <app-apparatus></app-apparatus>
-        <app-apparatus></app-apparatus>
-        <app-apparatus></app-apparatus>
+        <app-apparatus apparatusName="machine à laver" apparatusStatus="éteint"></app-apparatus>
+        <app-apparatus apparatusName="Frigo" apparatusStatus="allumé"></app-apparatus>
+        <app-apparatus apparatusName="Ordinateur" apparatusStatus="éteint"></app-apparatus>
+        <app-apparatus apparatusName="Télévision"apparatusStatus="allumé"></app-apparatus>
       </ul>
-      <button class="btn btn-success" type="button" name="switchAllLightButton" [disabled] = "!isAuthentified">Tout allumer</button>
+      <button class="btn btn-success"
+              type="button"
+              name="switchAllLightButton"
+              [disabled] = "!isAuthentified"
+              (click) = "onClickOnSwitchAllLightButton()">Tout allumer</button>
     </div>
   </div>
 </div>
