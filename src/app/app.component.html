@@ -1,13 +1,13 @@
-<!-- Apparatus components -->
+<!-- Adevice components -->
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Here are my apparatus: </h2>
+      <h2>Here are my devices: </h2>
       <ul class="list-group">
-        <app-apparatus *ngFor="let device of devices"
-                        [apparatusName]="device.name"
-                        [apparatusStatus]="device.status">
-        </app-apparatus>
+        <app-device *ngFor="let device of devices"
+                        [deviceName]="device.name"
+                        [deviceStatus]="device.status">
+        </app-device>
       </ul>
       <button class="btn btn-success"
               type="button"
