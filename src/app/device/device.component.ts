@@ -19,4 +19,14 @@ export class DeviceComponent implements OnInit {
     return this.deviceStatus;
   }
 
+  getColor() {
+    var color = "";
+    if (this.deviceStatus === "allumé") {
+      color = "green";
+    } else if (this.deviceStatus === "éteint") {
+      color = "red";
+    }
+    return color;
+  }
+  
 }
