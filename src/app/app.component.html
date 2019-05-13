@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h2>Here are my devices: </h2>
+      <p>Updated: {{ lastUpdate | async | date: 'short' }}</p>
       <ul class="list-group">
         <app-device *ngFor="let device of devices"
                         [deviceName]="device.name"

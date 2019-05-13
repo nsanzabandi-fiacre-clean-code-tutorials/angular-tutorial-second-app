@@ -9,6 +9,17 @@ export class AppComponent {
 
   title = 'angular-tutorial-second-app';
   isAuthentified = false;
+  lastUpdate = new Promise(
+    // Simulating a call to test assynchronous functionaliity
+    (resolve, reject) => {
+      const date = new Date();
+      setTimeout(
+        () => {
+          resolve(date);
+        }, 4000
+      );
+    }
+  );
 
   // TODO: Rename device in devices.
   devices = [
