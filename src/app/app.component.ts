@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DeviceService } from './services/device.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title = 'angular-tutorial-second-app';
   isAuthentified = false;
@@ -21,27 +22,9 @@ export class AppComponent {
     }
   );
 
-  // TODO: Rename device in devices.
-  devices = [
-    {
-      name: 'Machine à laver',
-      status: 'éteint'
-    },
-    {
-      name: 'Télévision',
-      status: 'allumé'
-    },
-    {
-      name: 'Frigo',
-      status: 'éteint'
-    },
-    {
-      name: 'ordinateur',
-      status: 'allumé'
-    }
-  ];
+  devices: any[];
 
-  constructor() {
+  constructor(private deviceService: DeviceService) {
     setTimeout(
       () => {
         this.isAuthentified = true;
@@ -49,7 +32,23 @@ export class AppComponent {
     );
   }
 
-  onClickOnSwitchAllLightButton() {
-    console.log("On allume tout!!");
+  ngOnInit() {
+    this.devices = this.deviceService.devices;
   }
+
+  /**
+   * Event when the button switchOnAllButton is clicked.
+   * @author fnsanzabandi
+   */
+  onSwitchOnAllButton() {
+    this.deviceService.switchOnAll();
+  }
+
+  /**
+   * Event when the button switchOffAllButton is clicked.
+   * @author fnsanzabandi
+   */
+   onSwitchOffAllButton() {
+     this.deviceService.switchOffAll();
+   }
 }

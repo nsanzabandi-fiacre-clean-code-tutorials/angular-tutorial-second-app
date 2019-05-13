@@ -1,10 +1,18 @@
 <li [ngClass]="{'list-group-item':true,
                 'list-group-item-success': deviceStatus === 'allumé',
                 'list-group-item-danger': deviceStatus === 'éteint'}">
-  <div style="width:20px;height:20px;background-color:red;"
-    *ngIf="deviceStatus === 'éteint'">
-  </div>
   <h4 [ngStyle]="{color: getColor()}"> Device: {{ deviceName }} - {{ getStatus() }}
   </h4>
-  <input type="text" name="deviceNameInput" class="form-control" [(ngModel)] = "deviceName">
+  <button name="switchOnDeviceButton"
+          class="btn btn-success"
+          (click)="onSwitchOnDeviceButton()"
+          [disabled]="deviceStatus === 'allumé'">
+          allumer
+  </button>
+  <button name="switchOffDeviceButton"
+          class="btn btn-danger"
+          (click)="onSwitchOffDeviceButton()"
+          [disabled]="deviceStatus === 'éteint'">
+          allumer
+  </button>
 </li>

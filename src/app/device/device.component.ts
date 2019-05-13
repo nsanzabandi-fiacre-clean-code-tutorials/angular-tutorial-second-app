@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import { DeviceService } from "../services/device.service";
 @Component({
   selector: 'app-device',
   templateUrl: './device.component.html',
@@ -9,8 +9,9 @@ export class DeviceComponent implements OnInit {
 
   @Input() deviceName: string;
   @Input() deviceStatus: string;
+  @Input() deviceIndex: number;
 
-  constructor() { }
+  constructor(private deviceService: DeviceService) { }
 
   ngOnInit() {
   }
@@ -28,5 +29,20 @@ export class DeviceComponent implements OnInit {
     }
     return color;
   }
-  
+
+  /**
+   * Event when the button switchOnDeviceButton is clicked.
+   * @author fnsanzabandi
+   */
+  onSwitchOnDeviceButton() {
+    this.deviceService.switchOnOne(this.deviceIndex);
+  }
+
+  /**
+   * Event when the button switchOffDeviceButton is clicked.
+   * @author fnsanzabandi
+   */
+  onSwitchOffDeviceButton() {
+    this.deviceService.switchOffOne(this.deviceIndex);
+  }
 }
