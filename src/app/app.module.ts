@@ -11,11 +11,14 @@ import { DevicesViewComponent } from './devices-view/devices-view.component';
 
 import { DeviceService } from './services/device.service';
 import { AuthentificationService } from './services/authentification.service';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 const appRoutes: Routes = [
   { path: 'devices', component: DevicesViewComponent },
   { path: 'authentification', component: AuthentificationComponent},
-  { path: '', component: DevicesViewComponent}
+  { path: '', component: DevicesViewComponent},
+  { path:'not-found', component: FourOhFourComponent },
+  { path: '**', redirectTo: 'not-found' }
 ];
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ const appRoutes: Routes = [
     FirstComponentComponent,
     DeviceComponent,
     AuthentificationComponent,
-    DevicesViewComponent
+    DevicesViewComponent,
+    FourOhFourComponent
   ],
   imports: [
     BrowserModule,
