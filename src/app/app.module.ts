@@ -6,9 +6,11 @@ import { Routes, RouterModule } from "@angular/router";
 import { AppComponent } from './app.component';
 import { FirstComponentComponent } from './first-component/first-component.component';
 import { DeviceComponent } from './device/device.component';
-import { DeviceService } from './services/device.service';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { DevicesViewComponent } from './devices-view/devices-view.component';
+
+import { DeviceService } from './services/device.service';
+import { AuthentificationService } from './services/authentification.service';
 
 const appRoutes: Routes = [
   { path: 'devices', component: DevicesViewComponent },
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    DeviceService
+    DeviceService,
+    AuthentificationService
   ],
   bootstrap: [AppComponent]
 })
