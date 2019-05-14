@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { FirstComponentComponent } from './first-component/first-component.component';
 import { DeviceComponent } from './device/device.component';
 import { DeviceService } from './services/device.service';
+import { AuthentificationComponent } from './authentification/authentification.component';
+import { DevicesViewComponent } from './devices-view/devices-view.component';
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponentComponent,
-    DeviceComponent
+    DeviceComponent,
+    AuthentificationComponent,
+    DevicesViewComponent
   ],
   imports: [
     BrowserModule,
