@@ -5,6 +5,7 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { DeviceService } from './services/device.service';
 import { AuthentificationService } from './services/authentification.service';
+import { AuthentificationGuardService } from './services/authentification-guard.service';
 
 import { AppComponent } from './app.component';
 import { FirstComponentComponent } from './first-component/first-component.component';
@@ -15,9 +16,9 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { DeviceDetailsComponent } from './device-details/device-details.component';
 
 const appRoutes: Routes = [
-  { path: 'devices', component: DevicesViewComponent },
+  { path: 'devices', canActivate: [AuthentificationGuardService], component: DevicesViewComponent },
+  { path: 'devices/:id', canActivate: [AuthentificationGuardService], component: DeviceDetailsComponent },
   { path: 'authentification', component: AuthentificationComponent },
-  { path: 'devices/:id', component: DeviceDetailsComponent },
   { path: '', component: DevicesViewComponent},
   { path:'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' }
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     DeviceService,
-    AuthentificationService
+    AuthentificationService,
+    AuthentificationGuardService
   ],
   bootstrap: [AppComponent]
 })
