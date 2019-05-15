@@ -3,6 +3,7 @@
                 'list-group-item-danger': deviceStatus === 'éteint'}">
   <h4 [ngStyle]="{color: getColor()}"> Device: {{ deviceName }} - {{ getStatus() }}
   </h4>
+  <a [routerLink]="[id]">Détails</a>
   <button name="switchOnDeviceButton"
           class="btn btn-success"
           (click)="onSwitchOnDeviceButton()"
