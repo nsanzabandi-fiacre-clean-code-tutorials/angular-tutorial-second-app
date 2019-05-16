@@ -1,6 +1,10 @@
+import { Subject } from 'rxjs';
+
 export class DeviceService {
 
-  devices = [
+  devicesSubject = new Subject<any[]>();
+
+  private devices = [
     {
       id: 1,
       name: 'Machine à laver',
@@ -23,6 +27,19 @@ export class DeviceService {
     }
   ];
 
+  /**
+   * Emits devices Subject.
+   * @author fnsanzabandi
+   */
+  emitDevicesSubject() {
+    this.devicesSubject.next(this.devices.slice());
+  }
+
+  /**
+   * Gets a device by the given id
+   * @param id
+   * @author fnsanzabandi
+   */
   getDeviceById(id: number) {
     const device = this.devices.find(
       (deviceObject) => {
@@ -33,22 +50,24 @@ export class DeviceService {
   }
   /**
    * Switches on all devices.
-   * @author fnsanzandi
+   * @author fnsanzabandi
    */
   switchOnAll() {
     for (let device of this.devices) {
       device.status = "allumé";
     }
+    this.emitDevicesSubject();
   }
 
   /**
    * Switches of all devices.
-   * @author fnsanzandi
+   * @author fnsanzabandi
    */
   switchOffAll() {
     for (let device of this.devices) {
       device.status = "éteint";
     }
+    this.emitDevicesSubject();
   }
 
   /**
@@ -57,6 +76,7 @@ export class DeviceService {
    */
   switchOnOne(index: number) {
     this.devices[index].status = "allumé";
+    this.emitDevicesSubject();
   }
 
   /**
@@ -65,5 +85,7 @@ export class DeviceService {
    */
   switchOffOne(index: number) {
     this.devices[index].status = "éteint";
+    this.emitDevicesSubject();
   }
+  
 }
