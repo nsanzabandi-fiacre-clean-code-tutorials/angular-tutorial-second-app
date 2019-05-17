@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from "@angular/router";
 
 import { DeviceService } from './services/device.service';
@@ -17,13 +17,15 @@ import { DeviceDetailsComponent } from './device-details/device-details.componen
 import { DeviceEditionComponent } from './device-edition/device-edition.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserService } from './services/user.service';
+import { NewUserComponent } from './new-user/new-user.component';
 
 const appRoutes: Routes = [
   { path: 'devices', canActivate: [AuthentificationGuardService], component: DevicesViewComponent },
   { path: 'devices/:id', canActivate: [AuthentificationGuardService], component: DeviceDetailsComponent },
   { path: 'deviceEdition', canActivate: [AuthentificationGuardService], component: DeviceEditionComponent },
   { path: 'authentification', component: AuthentificationComponent },
-  { path: 'users', component: UserListComponent},
+  { path: 'users', component: UserListComponent },
+  { path: 'newUser', component: NewUserComponent},
   { path: '', component: DevicesViewComponent},
   { path:'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' }
@@ -39,11 +41,13 @@ const appRoutes: Routes = [
     FourOhFourComponent,
     DeviceDetailsComponent,
     DeviceEditionComponent,
-    UserListComponent
+    UserListComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
