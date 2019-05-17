@@ -88,4 +88,23 @@ export class DeviceService {
     this.emitDevicesSubject();
   }
   
+  /**
+   * Adds a device.
+   * @param deviceName 
+   * @param deviceStatus 
+   * author fnsanzabandi
+   */
+  addDevice(deviceName: string, deviceStatus: string) {
+    const device = {
+      id: 0,
+      name: '',
+      status: ''
+    };
+
+    device.name = deviceName;
+    device.status = deviceStatus;
+    device.id = this.devices[this.devices.length - 1].id + 1;
+    this.devices.push(device);
+    this.emitDevicesSubject();
+  }
 }

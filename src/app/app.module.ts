@@ -14,10 +14,12 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { DevicesViewComponent } from './devices-view/devices-view.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { DeviceDetailsComponent } from './device-details/device-details.component';
+import { DeviceEditionComponent } from './device-edition/device-edition.component';
 
 const appRoutes: Routes = [
   { path: 'devices', canActivate: [AuthentificationGuardService], component: DevicesViewComponent },
   { path: 'devices/:id', canActivate: [AuthentificationGuardService], component: DeviceDetailsComponent },
+  { path: 'deviceEdition', canActivate: [AuthentificationGuardService], component: DeviceEditionComponent },
   { path: 'authentification', component: AuthentificationComponent },
   { path: '', component: DevicesViewComponent},
   { path:'not-found', component: FourOhFourComponent },
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     AuthentificationComponent,
     DevicesViewComponent,
     FourOhFourComponent,
-    DeviceDetailsComponent
+    DeviceDetailsComponent,
+    DeviceEditionComponent
   ],
   imports: [
     BrowserModule,
