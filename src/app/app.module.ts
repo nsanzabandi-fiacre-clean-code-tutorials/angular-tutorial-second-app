@@ -15,12 +15,15 @@ import { DevicesViewComponent } from './devices-view/devices-view.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { DeviceDetailsComponent } from './device-details/device-details.component';
 import { DeviceEditionComponent } from './device-edition/device-edition.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserService } from './services/user.service';
 
 const appRoutes: Routes = [
   { path: 'devices', canActivate: [AuthentificationGuardService], component: DevicesViewComponent },
   { path: 'devices/:id', canActivate: [AuthentificationGuardService], component: DeviceDetailsComponent },
   { path: 'deviceEdition', canActivate: [AuthentificationGuardService], component: DeviceEditionComponent },
   { path: 'authentification', component: AuthentificationComponent },
+  { path: 'users', component: UserListComponent},
   { path: '', component: DevicesViewComponent},
   { path:'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' }
@@ -35,7 +38,8 @@ const appRoutes: Routes = [
     DevicesViewComponent,
     FourOhFourComponent,
     DeviceDetailsComponent,
-    DeviceEditionComponent
+    DeviceEditionComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,8 @@ const appRoutes: Routes = [
   providers: [
     DeviceService,
     AuthentificationService,
-    AuthentificationGuardService
+    AuthentificationGuardService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
