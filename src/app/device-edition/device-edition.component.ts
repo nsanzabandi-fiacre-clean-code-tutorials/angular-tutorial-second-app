@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class DeviceEditionComponent implements OnInit {
 
-  defaultStatus = "switchedOff";
+  defaultStatus = "éteint";
 
   constructor(private deviceService: DeviceService,
               private router: Router ) { }

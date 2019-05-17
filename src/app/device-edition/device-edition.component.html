@@ -12,8 +12,8 @@
           Etat de l'appareil
         </label>
         <select id="deviceStatus" class="form-control" name="deviceStatus" [ngModel]="defaultStatus">
-          <option value="switchedOn">Allumé</option>
-          <option value="switchedOff">Eteint</option>
+          <option value="allumé">Allumé</option>
+          <option value="éteint">Eteint</option>
         </select>
       </div>
       <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Enregistrer</button>
