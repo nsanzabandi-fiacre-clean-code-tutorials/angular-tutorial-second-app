@@ -3,17 +3,20 @@
                 'list-group-item-danger': deviceStatus === 'éteint'}">
   <h4 [ngStyle]="{color: getColor()}"> Device: {{ deviceName }} - {{ getStatus() }}
   </h4>
+
+  <div class="btn-toolbar" role="toolbar">
+          <button name="switchOnDeviceButton"
+                  class="btn btn-success btn-group"
+                  (click)="onSwitchOnDeviceButton()"
+                  [disabled]="deviceStatus === 'allumé'">
+                  allumer
+          </button>
+          <button name="switchOffDeviceButton"
+                  class="btn btn-danger btn-group"
+                  (click)="onSwitchOffDeviceButton()"
+                  [disabled]="deviceStatus === 'éteint'">
+                  éteindre
+          </button>
+  </div>
   <a [routerLink]="[id]">Détails</a>
-  <button name="switchOnDeviceButton"
-          class="btn btn-success"
-          (click)="onSwitchOnDeviceButton()"
-          [disabled]="deviceStatus === 'allumé'">
-          allumer
-  </button>
-  <button name="switchOffDeviceButton"
-          class="btn btn-danger"
-          (click)="onSwitchOffDeviceButton()"
-          [disabled]="deviceStatus === 'éteint'">
-          éteindre
-  </button>
 </li>

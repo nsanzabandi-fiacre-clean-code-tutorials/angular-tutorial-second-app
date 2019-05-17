@@ -9,14 +9,17 @@
                     [id]="device.id">
     </app-device>
   </ul>
-  <button class="btn btn-success"
-          name="switchOnAllButton"
-          (click) = "onSwitchOnAllButton()">
-          Tout allumer
-  </button>
-  <button class="btn btn-danger"
-          name="switchOffAllButton"
-          (click) = "onSwitchOffAllButton()">
-          Tout éteindre
-  </button>
+
+  <div class="btn-toolbar" role="toolbar">    
+    <button class="btn btn-success"
+            name="switchOnAllButton"
+            (click) = "onSwitchOnAllButton()">
+            Tout allumer
+    </button>
+    <button class="btn btn-danger"
+            name="switchOffAllButton"
+            (click) = "onSwitchOffAllButton()">
+            Tout éteindre
+    </button>
+  </div>
 </div>
