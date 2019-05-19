@@ -1,31 +1,15 @@
 import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class DeviceService {
 
   devicesSubject = new Subject<any[]>();
 
-  private devices = [
-    {
-      id: 1,
-      name: 'Machine à laver',
-      status: 'éteint'
-    },
-    {
-      id: 2,
-      name: 'Télévision',
-      status: 'allumé'
-    },
-    {
-      id: 3,
-      name: 'Frigo',
-      status: 'éteint'
-    },
-    {
-      id: 4,
-      name: 'ordinateur',
-      status: 'allumé'
-    }
-  ];
+  private devices = [];
+
+  constructor(private httpClient: HttpClient) {}
 
   /**
    * Emits devices Subject.
@@ -107,4 +91,32 @@ export class DeviceService {
     this.devices.push(device);
     this.emitDevicesSubject();
   }
+
+  saveDevicesToServer() {
+    this.httpClient
+        .put('https://fir-testone-eceb1.firebaseio.com/devices.json', this.devices)
+        .subscribe(
+          () => {
+            console.log('Enregistrement terminé.');
+          },
+          (error: string) => {
+            console.log('Erreur de sauvegarde!' + error);
+          }
+        );
+  }
+
+  getDevicesFromServer() {
+    this.httpClient
+    .get<any[]>('https://fir-testone-eceb1.firebaseio.com/devices.json')
+    .subscribe(
+      (response) => {
+        this.devices = response;
+        this.emitDevicesSubject();
+      },
+      (error) => {
+        console.log('Erreur de chargement!' + error);
+      }
+    ); 
+  }
+
 }

@@ -58,4 +58,12 @@ export class DevicesViewComponent implements OnInit {
      onSwitchOffAllButton() {
        this.deviceService.switchOffAll();
      }
+
+     onSave() {
+       this.deviceService.saveDevicesToServer();
+     }
+
+     onFetch() {
+       this.deviceService.getDevicesFromServer()
+     }
 }
